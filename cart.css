@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Playwrite GB S", cursive;
+}
+
+.upper {
+    background-color: #fff;
+}
+
+.upper-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 100px;
+    padding: 10px;
+}
+
+.item1 {
+    margin: 0;
+    font-family: "Playwrite GB S", cursive;
+    font-size: 1.5rem;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.upper-2 button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2c3e50;
+}
+
+.upper-2 i {
+    margin-right: 20px;
+}
+.featured-section, .featured-products, .footer-bg {
+    padding: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.add-to-cart, .remove-item {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover, .remove-item:hover {
+    background-color: #218838;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.cart-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - LuxeHome</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://kit.fontawesome.com/c22bd1f254.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="upper">
+        <div class="upper-1">
+            <h1 class="item1">LuxeHome</h1>
+            <nav class="item1">
+                <a href="index.html">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+    </main>
+
+    <script>
+        // Initialize cart variable
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to render cart items
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = ''; // Clear previous items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>The cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p class="price">${item.price}</p>
+                    <button class="remove-item" data-index="${index}">Remove</button>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function () {
+                    const index = this.dataset.index;
+                    cart.splice(index, 1); // Remove item from cart
+                    localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+                    renderCartItems(); // Re-render cart
+                });
+            });
+        }
+
+        // Render the cart items on page load
+        renderCartItems();
+    </script>
+</body>
+
+</html>
